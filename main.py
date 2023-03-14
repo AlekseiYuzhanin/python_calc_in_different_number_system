@@ -17,6 +17,9 @@ def multiply_numbers(num1, num2, base):
 def divide_numbers(num1, num2, base):
     return convert_number(int(num1, base) // int(num2, base), base)
 
+def rem_numbers(num1,num2,base):
+    return convert_number(int(num1,base) % int(num2,base),base)
+
 def main():
     while True:
         print("Enter two numbers and a base (2 for binary, 8 for octal, 10 for decimal, 16 for hexadecimal):")
@@ -28,6 +31,7 @@ def main():
         print("2. Subtraction")
         print("3. Multiplication")
         print("4. Division")
+        print("5. Remainder of the division")
         choice = int(input("Enter choice (1/2/3/4): "))
 
         if choice == 1:
@@ -44,7 +48,10 @@ def main():
                 result = divide_numbers(num1, num2, base)
                 print("Result:", result)
             except ZeroDivisionError:
-                print("Cant divide on zero!")   
+                print("Cant divide on zero!")
+        elif choice == 5:
+            result = rem_numbers(num1,num2,base)
+            print("Result:",result)           
         else:
             print("Invalid choice!")
 
